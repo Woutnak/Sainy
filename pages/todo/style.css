@@ -1,0 +1,414 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(243, 196, 240);
+}
+
+a {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+i {
+    color: aliceblue;
+    margin-right: 16px;
+}
+
+/* Body template */
+#container {
+    display: grid;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar content";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 80px 1fr;
+    gap: 0;
+    min-height: 100vh;
+}
+
+/* navigation horizontal en haut */
+.header {
+    grid-area: header;
+    background: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px 100px;
+}
+
+/* navigation vertical à gauche */
+.sidebar {
+    grid-area: sidebar;
+    background: #3E1634;
+    height: 100vh;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1;
+}
+
+#img-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: #80788F;
+    user-select: none;
+}
+
+.logo {
+    border-radius: 100%;
+    text-align: center;
+}
+
+.tools ul li a {
+    display: block;
+    width: 100%;
+    line-height: 65px;
+    font-size: 15px;
+    color: aliceblue;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: .4s;
+    margin-left: 0;
+}
+
+.tools ul li a:hover,
+.tools ul li a.active {
+    padding-left: 10px;
+    background-color: #ad5296;
+    color: #fff;
+}
+
+.tools ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* contenu */
+.section {
+    grid-area: content;
+    margin-bottom: 50px;
+    padding: 20px;
+    margin-left: 250px; /* Pour ne pas passer sous la sidebar */
+}
+
+/*-----------------VISION BOARD-----------------*/
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.vision-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vision-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.vision-card:hover {
+    transform: translateY(-5px);
+}
+.vision-card p {
+    margin-top: 10px;
+}
+
+.quote {
+    text-align: center;
+    font-style: italic;
+    margin-top: 30px;
+    color: #555;
+}
+
+/*-----------------TO DO-----------------*/
+#todo-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#todo-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#todo-input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#todo-form button {
+    padding: 10px 16px;
+    background-color: #3E1634;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#todo-form button:hover {
+    background-color: #ad5296;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.kanban-list li {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.kanban-list li:hover {
+    background-color: #e0e0e0;
+}
+
+.todo-delete {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+}
+.kanban-columns {
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+
+
+/*-----------------PLANNING-----------------*/
+.planning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.planning-slot {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.planning-slot:hover {
+    transform: translateY(-5px);
+}
+
+.planning-slot h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #ad5296;
+}
+
+.planning-slot ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.planning-slot ul li {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/*-----------------JOURNALING-----------------*/
+#journal-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#journal-form label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#journal-date,
+#journal-text {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+#journal-text {
+    min-height: 150px;
+}
+
+#journal-form button {
+    background-color: #ad5296;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#journal-form button:hover {
+    background-color: #ec18b7;
+}
+
+/*-----------------POMODORO-----------------*/
+.pomodoro-timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff6347;
+    background-color: #fff2ee;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.pomodoro-controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pomodoro-controls button:hover {
+    background-color: #0056b3;
+}
+
+.pomodoro-controls button#reset {
+    background-color: #dc3545;
+}
+
+.pomodoro-controls button#reset:hover {
+    background-color: #b02a37;
+}
+
+/*-----------------DASHBOARD-----------------*/
+#dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+#dashboard h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    #container {
+        grid-template-columns: 80px 1fr;
+    }
+    .sidebar {
+        width: 80px;
+    }
+    .section {
+        margin-left: 80px;
+    }
+    .tools ul li a {
+        font-size: 0;
+        padding-left: 0;
+    }
+    .tools ul li a i {
+        font-size: 22px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #container {
+        display: block;
+    }
+    .sidebar {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+    .section {
+        margin-left: 0;
+        padding: 10px;
+    }
+}
