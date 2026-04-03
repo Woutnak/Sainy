@@ -49,7 +49,32 @@
             </div>
         </nav>
 
-        <section id="vision-board" class="section">
+        <section id="todo-section" class="section">
+            
+            <form id="todo-form">
+                <input type="text" id="todo-input" placeholder="Ajouter une tâche..." required>
+                <button type="submit">Add</button>
+            </form>
+
+
+          <div class="kanban">
+                <div class="kanban-columns">
+                    <div class="kanban-column" id="todo-column">
+                        <h3>To Do</h3>
+                        <ul class="kanban-list" id="todo-kanban">
+                            
+                        </ul>
+                    </div>
+                    <div class="kanban-column" id="in-progress-column">
+                        <h3>In Progress</h3>
+                        <ul class="kanban-list" id="in-progress-kanban"></ul>
+                    </div>
+                    <div class="kanban-column" id="done-column">
+                        <h3>Done</h3>
+                        <ul class="kanban-list" id="done-kanban"></ul>
+                    </div>
+                </div>
+        </div>  
         </section>
     </div>
 </body>
